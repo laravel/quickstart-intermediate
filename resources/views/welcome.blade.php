@@ -9,7 +9,7 @@
 				</div>
 
 				<div class="panel-body">
-					Another Thing
+					You can store tasks here! Please register or login.
 				</div>
 			</div>
 		</div>
