@@ -61,7 +61,36 @@ class TaskController extends Controller
 
         return redirect('/tasks');
     }
+    /**
+     * Edit an existing task.
+     *
+     * @param  $id
+     * @return Response
+     */
+    public function edit($id)
+    {
+        $task = $this->tasks->getTask($id);
 
+        return view('tasks.edit',compact('task'));
+    }
+    /**
+     * Edit the existing task content.
+     *
+     * @param  Request $request, $id
+     * @return Response
+     */
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'name' => 'required|max:255',
+        ]);
+
+        $task = $this->tasks->getTask($id);
+        $task->name = $request->name;
+        $task->save();
+
+        return redirect('/tasks');
+    }
     /**
      * Destroy the given task.
      *

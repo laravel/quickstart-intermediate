@@ -64,6 +64,9 @@
 												<button type="submit" id="delete-task-{{ $task->id }}" class="btn btn-danger">
 													<i class="fa fa-btn fa-trash"></i>Delete
 												</button>
+                                                <a href="/task/{{ $task->id }}/edit" id="edit-task-{{ $task->id }}" class="btn btn-warning">
+                                                    <i class="fa fa-btn fa-edit"></i>Edit
+                                                </a>
 											</form>
 										</td>
 									</tr>
