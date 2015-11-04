@@ -48,7 +48,7 @@
 						<span class="icon-bar"></span>
 					</button>
 
-					<a class="navbar-brand" href="#">Task List</a>
+					<a class="navbar-brand" href="/">Task List</a>
 				</div>
 
 				<div id="navbar" class="navbar-collapse collapse">
