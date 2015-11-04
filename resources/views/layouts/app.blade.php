@@ -30,9 +30,9 @@
 	</style>
 
 	<script>
-		$(function () {
+		(function () {
 			$('#task-name').focus();
-		});
+		}());
 	</script>
 </head>
 
