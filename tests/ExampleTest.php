@@ -19,7 +19,7 @@ class ExampleTest extends TestCase
 
     public function test_i_can_create_an_account()
     {
-        $this->visit('/auth/register')
+        $this->visit('/register')
             ->type('Taylor Otwell', 'name')
             ->type('taylor@laravel.com', 'email')
             ->type('secret', 'password')
