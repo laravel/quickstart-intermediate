@@ -5,3 +5,4 @@ Homestead.json
 
 #PHPStorm Project setting
 /.idea
+/.env
