@@ -77,4 +77,35 @@ class TaskController extends Controller
 
         return redirect('/tasks');
     }
+
+	/**
+     * Display the task edit view
+     * 
+     * @param Task $task
+     * @return type
+     */
+    public function edit(Task $task)
+    {
+        $this->authorize('checkTaskOwner', $task);
+
+        return view('tasks.edit', [
+            'task' => $task,
+        ]);
+    }
+    
+    /**
+     * Update the current task
+     * 
+     * @param Request $request
+     * @param Task $task
+     * @return type
+     */
+    public function update(Request $request, Task $task)
+    {
+        $this->authorize('checkTaskOwner', $task);
+
+        $task->update($request->all());
+
+        return redirect('/tasks');
+    }
 }
