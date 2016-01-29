@@ -55,9 +55,17 @@
 									<tr>
 										<td class="table-text"><div>{{ $task->name }}</div></td>
 
-										<!-- Task Delete Button -->
 										<td>
-											<form action="/task/{{ $task->id }}" method="POST">
+											<!-- Task Edit Button -->
+											<form action="/task/edit/{{ $task->id }}" method="GET" style="display: inline-block;">
+												{{ csrf_field() }}
+												<button type="submit" id="delete-task-{{ $task->id }}" class="btn btn-warning">
+													<i class="fa fa-btn fa-edit"></i>Edit
+												</button>
+											</form>
+
+											<!-- Task Delete Button -->
+											<form action="/task/{{ $task->id }}" method="POST" style="display: inline-block;">
 												{{ csrf_field() }}
 												{{ method_field('DELETE') }}
 

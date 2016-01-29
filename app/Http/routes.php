@@ -20,6 +20,8 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/tasks', 'TaskController@index');
     Route::post('/task', 'TaskController@store');
     Route::delete('/task/{task}', 'TaskController@destroy');
+    Route::get('/task/edit/{task}', 'TaskController@edit');
+    Route::patch('/task/{task}', 'TaskController@update');
 
     // Authentication Routes...
     Route::auth();
