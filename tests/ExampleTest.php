@@ -33,7 +33,7 @@ class ExampleTest extends TestCase
     public function test_authenticated_users_can_create_tasks()
     {
         $user = factory(User::class)->create();
-    
+
         $this->actingAs($user)
              ->visit('/tasks')
              ->type('Task 1', 'name')
@@ -46,10 +46,10 @@ class ExampleTest extends TestCase
     public function test_users_can_delete_a_task()
     {
         $user = factory(User::class)->create();
-    
+
         $user->tasks()->save($taskOne = factory(Task::class)->create());
         $user->tasks()->save($taskTwo = factory(Task::class)->create());
-    
+
         $this->actingAs($user)
              ->visit('/tasks')
              ->see($taskOne->name)
@@ -58,33 +58,33 @@ class ExampleTest extends TestCase
              ->dontSee($taskOne->name)
              ->see($taskTwo->name);
     }
-    
-    
+
+
     public function test_users_cant_view_tasks_of_other_users()
     {
         $userOne = factory(User::class)->create();
         $userTwo = factory(User::class)->create();
-    
+
         $userOne->tasks()->save($taskOne = factory(Task::class)->create());
         $userTwo->tasks()->save($taskTwo = factory(Task::class)->create());
-    
+
         $this->actingAs($userOne)
              ->visit('/tasks')
              ->see($taskOne->name)
              ->dontSee($taskTwo->name);
     }
-    
-    
+
+
     public function test_users_cant_delete_tasks_of_other_users()
     {
         $this->withoutMiddleware();
-    
+
         $userOne = factory(User::class)->create();
         $userTwo = factory(User::class)->create();
-    
+
         $userOne->tasks()->save($taskOne = factory(Task::class)->create());
         $userTwo->tasks()->save($taskTwo = factory(Task::class)->create());
-    
+
         $this->actingAs($userOne)
              ->delete('/task/'.$taskTwo->id)
              ->assertResponseStatus(403);
