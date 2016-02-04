@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Task;
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
@@ -25,7 +24,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot(Router $router)
     {
-        $router->model('task', Task::class);
+        //
 
         parent::boot($router);
     }
