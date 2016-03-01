@@ -61,7 +61,7 @@ class TaskController extends Controller
             'name' => $request->name,
         ]);
 
-        return redirect('/tasks');
+        return redirect('/tasks')->withInput();
     }
 
     /**
