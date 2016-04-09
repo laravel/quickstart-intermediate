@@ -12,8 +12,6 @@ class CreateEdInfosTable extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('ed_infos');
-
         Schema::create('ed_infos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('ed_id', 50);

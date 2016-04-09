@@ -6,9 +6,8 @@ use App\Repositories\EdInfoRepository;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
 
-class EdController extends Controller
+class EdInfoController extends Controller
 {
     /**
      * The task repository instance.
@@ -36,9 +35,13 @@ class EdController extends Controller
      */
     public function index(Request $request)
     {
-        // TODO create index view
-        if()
-        return view('edInfo.index', [
+        /**
+         * TODO create index view
+         *
+         * Needs to distinguish viewer and manager
+         */
+
+        return view('edInfos.index', [
             'edInfos' => $this->edInfos->getAll(),
         ]);
     }
