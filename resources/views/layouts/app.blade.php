@@ -48,7 +48,7 @@
 						<span class="icon-bar"></span>
 					</button>
 
-					<a class="navbar-brand" href="/">A Place Holder</a>
+					<a class="navbar-brand" href="/">Ed Info System</a>
 				</div>
 
 				<div id="navbar" class="navbar-collapse collapse">
