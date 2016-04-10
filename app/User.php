@@ -44,4 +44,21 @@ class User extends Model implements AuthenticatableContract,
     {
         return $this->hasMany(Task::class);
     }
+
+    /**
+     * Get all of the posts for the user.
+     */
+    public function posts()
+    {
+        return $this->hasMany(ForumPost::class);
+    }
+
+
+    /**
+     * Get all of the replies for the user.
+     */
+    public function replies()
+    {
+        return $this->hasMany(ForumReply::class);
+    }
 }

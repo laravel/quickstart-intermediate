@@ -4,22 +4,21 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ForumPost extends Model
+class ForumReply extends Model
 {
     /**
-     * Get the user that posted this post.
+     * Get the user that posted the reply.
      */
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-
     /**
-     * Get all of the replies of this post.
+     * Get the post that owns the task.
      */
-    public function posts()
+    public function post()
     {
-        return $this->hasMany(ForumReply::class);
+        return $this->belongsTo(ForumPost::class);
     }
 }
