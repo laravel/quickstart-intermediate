@@ -15,7 +15,7 @@ class CreateForumPostsTable extends Migration
         Schema::create('forum_posts', function (Blueprint $table) {
             $table->increments('post_id');
             $table->unsignedInteger('user_id');
-            $table->varchar('title', 200)->default('Untitled');
+            $table->string('title', 200)->default('Untitled');
             $table->text('message');
             $table->unsignedInteger('type')->default(0);
             $table->unsignedInteger('forum_access_count')->default(0);
