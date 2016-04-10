@@ -9,7 +9,7 @@
 				</div>
 
 				<div class="panel-body">
-					I don't know what you are going to do in this website! Anyway, please register or login.
+					Welcome to the Ed Info System!
 				</div>
 			</div>
 		</div>
