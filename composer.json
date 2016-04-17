@@ -7,7 +7,8 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
-        "khill/lavacharts": "3.0.*"
+        "khill/lavacharts": "3.0.*",
+        "yajra/laravel-datatables-oracle": "^6.10"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
