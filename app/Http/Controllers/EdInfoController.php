@@ -2,48 +2,39 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\EdInfoRepository;
-use Illuminate\Http\Request;
+use App\EdInfo;
+use Yajra\Datatables\Datatables;
 
 use App\Http\Requests;
 
 class EdInfoController extends Controller
 {
     /**
-     * The task repository instance.
-     *
-     * @var EdInfoRepository
-     */
-    protected $edInfos;
-
-    /**
      * Create a new controller instance.
-     *
-     * @param  EdInfoRepository  $edInfos
      */
-    public function __construct(EdInfoRepository $edInfos)
+    public function __construct()
     {
         $this->middleware('auth');
-
-        $this->edInfos = $edInfos;
     }
 
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
-    public function index(Request $request)
+    public function index()
     {
-        /**
-         * TODO create index view
-         *
-         * Needs to distinguish viewer and manager
-         */
+        return view('edInfos.index');
+    }
 
-        return view('edInfos.index', [
-            'edInfos' => $this->edInfos->getAll(),
-        ]);
+    /**
+     * Process edInfos ajax request.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function anyData()
+    {
+        return Datatables::of(EdInfo::query())->make(true);
     }
 
     /**
@@ -54,61 +45,5 @@ class EdInfoController extends Controller
     public function create()
     {
 
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }
