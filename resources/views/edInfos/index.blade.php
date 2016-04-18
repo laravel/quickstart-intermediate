@@ -11,41 +11,77 @@
                 <div class="panel-body">
                     <table id="ed-infos" class="table table-striped text-nowrap">
                         <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Ed id</th>
-                            <th>Pmt id</th>
-                            <th>Operator</th>
-                            <th>Test time</th>
-                            <th>Raw data path</th>
-                            <th>Test ambient path</th>
-                            <th>Detection Efficiency</th>
-                            <th>Detail detection efficiency path</th>
-                            <th>System resolution</th>
-                            <th>Ed tts</th>
-                            <th>Energy resolution</th>
-                            <th>Relative energy resolution</th>
-                            <th>Single muon charge</th>
-                            <th>Test result info path 1</th>
-                            <th>Test result info path 2</th>
-                            <th>Test result info path 3</th>
-                            <th>Test result info path 4</th>
-                            <th>Test result info path 5</th>
-                            <th>Test result pdf path</th>
-                            <th>Figure 1 path</th>
-                            <th>Figure 2 path</th>
-                            <th>Figure 3 path</th>
-                            <th>Figure 4 path</th>
-                            <th>Figure 5 path</th>
-                            <th>Figure 6 path</th>
-                            <th>Figure 7 path</th>
-                            <th>Figure 8 path</th>
-                            <th>Figure 9 path</th>
-                            <th>Figure 10 path</th>
-                            <th>Figure 11 path</th>
-                            <th>Figure 12 path</th>
-                        </tr>
-                    </thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Ed id</th>
+                                <th>Pmt id</th>
+                                <th>Operator</th>
+                                <th>Test time</th>
+                                <th>Raw data path</th>
+                                <th>Test ambient path</th>
+                                <th>Detection Efficiency</th>
+                                <th>Detail detection efficiency path</th>
+                                <th>System resolution</th>
+                                <th>Ed tts</th>
+                                <th>Energy resolution</th>
+                                <th>Relative energy resolution</th>
+                                <th>Single muon charge</th>
+                                <th>Test result info path 1</th>
+                                <th>Test result info path 2</th>
+                                <th>Test result info path 3</th>
+                                <th>Test result info path 4</th>
+                                <th>Test result info path 5</th>
+                                <th>Test result pdf path</th>
+                                <th>Figure 1 path</th>
+                                <th>Figure 2 path</th>
+                                <th>Figure 3 path</th>
+                                <th>Figure 4 path</th>
+                                <th>Figure 5 path</th>
+                                <th>Figure 6 path</th>
+                                <th>Figure 7 path</th>
+                                <th>Figure 8 path</th>
+                                <th>Figure 9 path</th>
+                                <th>Figure 10 path</th>
+                                <th>Figure 11 path</th>
+                                <th>Figure 12 path</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Id</th>
+                                <th>Ed id</th>
+                                <th>Pmt id</th>
+                                <th>Operator</th>
+                                <th>Test time</th>
+                                <th>Raw data path</th>
+                                <th>Test ambient path</th>
+                                <th>Detection Efficiency</th>
+                                <th>Detail detection efficiency path</th>
+                                <th>System resolution</th>
+                                <th>Ed tts</th>
+                                <th>Energy resolution</th>
+                                <th>Relative energy resolution</th>
+                                <th>Single muon charge</th>
+                                <th>Test result info path 1</th>
+                                <th>Test result info path 2</th>
+                                <th>Test result info path 3</th>
+                                <th>Test result info path 4</th>
+                                <th>Test result info path 5</th>
+                                <th>Test result pdf path</th>
+                                <th>Figure 1 path</th>
+                                <th>Figure 2 path</th>
+                                <th>Figure 3 path</th>
+                                <th>Figure 4 path</th>
+                                <th>Figure 5 path</th>
+                                <th>Figure 6 path</th>
+                                <th>Figure 7 path</th>
+                                <th>Figure 8 path</th>
+                                <th>Figure 9 path</th>
+                                <th>Figure 10 path</th>
+                                <th>Figure 11 path</th>
+                                <th>Figure 12 path</th>
+                            </tr>
+                        </tfoot>
                     </table>
                 </div>
             </div>
@@ -62,7 +98,6 @@
             $('#ed-infos').DataTable({
                 processing: true,
                 serverSide: true,
-                bAutoWidth: false,
                 ajax: '{!! route('EdInfos.data') !!}',
                 columns: [
                     { "data" : "id" },
@@ -97,7 +132,17 @@
                     { "data" : "figure_10_path" },
                     { "data" : "figure_11_path" },
                     { "data" : "figure_12_path" }
-                ]
+                ],
+                initComplete: function () {
+                    this.api().columns().every(function () {
+                        var column = this;
+                        var input = document.createElement("input");
+                        $(input).appendTo($(column.footer()).empty())
+                                .on('change', function () {
+                                    column.search($(this).val(), false, false, true).draw();
+                                });
+                    });
+                }
             });
 
             // Wrap the table with table-responsive!!!
@@ -105,4 +150,8 @@
             $('.table-responsive').width("100%");
         });
     </script>
+
+    <style>
+        .
+    </style>
 @endpush
