@@ -86,6 +86,30 @@
                 </div>
             </div>
         </div>
+
+        <div class="modal fade" id="chart" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Chart</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div id="stocks-chart"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
 @stop
 
@@ -142,9 +166,12 @@
                                     column.search($(this).val(), false, false, true).draw();
                                 });
                         $(input).wrap("<div></div>");
-                        var btn = document.createElement("a");
-                        btn.setAttribute("href", "#" + column.dataSrc());
+
+                        var btn = document.createElement("button");
+                        btn.setAttribute("type", "button");
                         btn.setAttribute("class", "btn btn-xs btn-primary");
+                        btn.setAttribute("data-toggle", "modal");
+                        btn.setAttribute("data-target", "#chart");
                         btn.innerHTML = "Generate chart";
                         $(btn).appendTo($(column.footer()));
                         $(btn).wrap("<div></div>");
@@ -165,7 +192,7 @@
         table.dataTable tfoot th input{
             width: 100%;
         }
-        table.dataTable tfoot th a{
+        table.dataTable tfoot th button{
             margin-top: 8px;
             width: 100%;
         }
