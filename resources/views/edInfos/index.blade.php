@@ -141,6 +141,13 @@
                                 .on('change', function () {
                                     column.search($(this).val(), false, false, true).draw();
                                 });
+                        $(input).wrap("<div></div>");
+                        var btn = document.createElement("a");
+                        btn.setAttribute("href", "#" + column.dataSrc());
+                        btn.setAttribute("class", "btn btn-xs btn-primary");
+                        btn.innerHTML = "Generate chart";
+                        $(btn).appendTo($(column.footer()));
+                        $(btn).wrap("<div></div>");
                     });
                 }
             });
@@ -152,6 +159,15 @@
     </script>
 
     <style>
-        .
+        table.dataTable tfoot th {
+            padding: 8px 8px 8px 8px;
+        }
+        table.dataTable tfoot th input{
+            width: 100%;
+        }
+        table.dataTable tfoot th a{
+            margin-top: 8px;
+            width: 100%;
+        }
     </style>
 @endpush
