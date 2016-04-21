@@ -27,3 +27,21 @@ $factory->define(App\Task::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(App\EdInfo::class, function(Faker\Generator $faker) {
+    return [
+        'ed_id' => str_random(10),
+        'pmt_id' => str_random(10),
+        'operator' => $faker->name,
+        'test_time' => $faker->dateTimeBetween('-2 years', 'now'),
+        'raw_data_path' => str_random(20),
+        'test_ambient_path' => str_random(20),
+        'detection_efficiency' => $faker->randomFloat(null, 10, 100),
+        'detail_detection_efficiency_path' => str_random(20),
+        'system_resolution' => $faker->randomFloat(null, 90, 100),
+        'ed_tts' => $faker->randomFloat(null, 20, 200),
+        'energy_resolution' => $faker->randomFloat(null, 90, 100),
+        'relative_energy_resolution' => $faker->randomFloat(null, 80, 120),
+        'single_muon_charge' => $faker->randomFloat(null, 70, 150),
+    ];
+});
+
