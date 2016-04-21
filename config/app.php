@@ -146,11 +146,6 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         /*
-         * Lavacharts Service Provider
-         */
-        Khill\Lavacharts\Laravel\LavachartsServiceProvider::class,
-
-        /*
          * Datatable Service
          */
         Yajra\Datatables\DatatablesServiceProvider::class,

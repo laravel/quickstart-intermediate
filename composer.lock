@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d8083acb8c9c2631179c5a4ee22ac49b",
-    "content-hash": "27ab3af8be9f6f1acc850360e753d5a9",
+    "hash": "a342a20158c12d31bc1a062110cbff07",
+    "content-hash": "e82219f5bb93b75fb2ae20780a0c0299",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -404,95 +404,6 @@
             "time": "2015-12-05 17:17:57"
         },
         {
-            "name": "khill/lavacharts",
-            "version": "3.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kevinkhill/lavacharts.git",
-                "reference": "bf91f1fb78f63852bb4ed63d3127d672d5ded979"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kevinkhill/lavacharts/zipball/bf91f1fb78f63852bb4ed63d3127d672d5ded979",
-                "reference": "bf91f1fb78f63852bb4ed63d3127d672d5ded979",
-                "shasum": ""
-            },
-            "require": {
-                "nesbot/carbon": "~1.14",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "~0.9",
-                "mybuilder/phpunit-accelerator": "~1.1",
-                "phpunit/phpunit": "~4.5",
-                "satooshi/php-coveralls": "~1.0",
-                "squizlabs/php_codesniffer": "~2.5"
-            },
-            "suggest": {
-                "khill/datatableplus": "Adds extra features to DataTables such as csv and laravel collection parsing."
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Khill\\Lavacharts\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Kevin Hill",
-                    "email": "kevinkhill@gmail.com",
-                    "role": "Creator"
-                },
-                {
-                    "name": "deringer",
-                    "homepage": "https://github.com/deringer",
-                    "role": "Contributor"
-                },
-                {
-                    "name": "stevebauman",
-                    "homepage": "https://github.com/stevebauman",
-                    "role": "Contributor"
-                },
-                {
-                    "name": "rajivseelam",
-                    "homepage": "https://github.com/rajivseelam",
-                    "role": "Contributor"
-                },
-                {
-                    "name": "tobias-kuendig",
-                    "homepage": "https://github.com/tobias-kuendig",
-                    "role": "Contributor"
-                },
-                {
-                    "name": "Stonos",
-                    "homepage": "https://github.com/Stonos",
-                    "role": "Contributor"
-                },
-                {
-                    "name": "MicahKV",
-                    "email": "micah138@yahoo.com",
-                    "role": "Contributor"
-                },
-                {
-                    "name": "SendDerek",
-                    "homepage": "https://github.com/SendDerek",
-                    "role": "Contributor"
-                }
-            ],
-            "description": "PHP wrapper library for the Google Chart API",
-            "homepage": "http://lavacharts.com",
-            "keywords": [
-                "charts",
-                "google",
-                "graphs"
-            ],
-            "time": "2016-03-19 15:53:51"
-        },
-        {
             "name": "laravel/framework",
             "version": "v5.1.34",
             "source": {
@@ -886,16 +797,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.18.2",
+            "version": "1.19.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "064b38c16790249488e7a8b987acf1c9d7383c09"
+                "reference": "5f56ed5212dc509c8dc8caeba2715732abb32dbf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/064b38c16790249488e7a8b987acf1c9d7383c09",
-                "reference": "064b38c16790249488e7a8b987acf1c9d7383c09",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/5f56ed5212dc509c8dc8caeba2715732abb32dbf",
+                "reference": "5f56ed5212dc509c8dc8caeba2715732abb32dbf",
                 "shasum": ""
             },
             "require": {
@@ -960,7 +871,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2016-04-02 13:12:58"
+            "time": "2016-04-12 18:29:35"
         },
         {
             "name": "mtdowling/cron-expression",
@@ -1055,16 +966,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v2.0.1",
+            "version": "v2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "ce5be709d59b32dd8a88c80259028759991a4206"
+                "reference": "47b254ea51f1d6d5dc04b9b299e88346bf2369e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/ce5be709d59b32dd8a88c80259028759991a4206",
-                "reference": "ce5be709d59b32dd8a88c80259028759991a4206",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/47b254ea51f1d6d5dc04b9b299e88346bf2369e3",
+                "reference": "47b254ea51f1d6d5dc04b9b299e88346bf2369e3",
                 "shasum": ""
             },
             "require": {
@@ -1080,7 +991,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0-dev"
+                    "dev-master": "2.1-dev"
                 }
             },
             "autoload": {
@@ -1102,7 +1013,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2016-02-28 19:48:28"
+            "time": "2016-04-19 13:41:41"
         },
         {
             "name": "paragonie/random_compat",
