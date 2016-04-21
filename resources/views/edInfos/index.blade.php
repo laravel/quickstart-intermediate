@@ -46,42 +46,6 @@
                                 <th>Figure 12 path</th>
                             </tr>
                         </thead>
-                        <tfoot>
-                            <tr>
-                                <th>Id</th>
-                                <th>Ed id</th>
-                                <th>Pmt id</th>
-                                <th>Operator</th>
-                                <th>Test time</th>
-                                <th>Raw data path</th>
-                                <th>Test ambient path</th>
-                                <th>Detection Efficiency</th>
-                                <th>Detail detection efficiency path</th>
-                                <th>System resolution</th>
-                                <th>Ed tts</th>
-                                <th>Energy resolution</th>
-                                <th>Relative energy resolution</th>
-                                <th>Single muon charge</th>
-                                <th>Test result info path 1</th>
-                                <th>Test result info path 2</th>
-                                <th>Test result info path 3</th>
-                                <th>Test result info path 4</th>
-                                <th>Test result info path 5</th>
-                                <th>Test result pdf path</th>
-                                <th>Figure 1 path</th>
-                                <th>Figure 2 path</th>
-                                <th>Figure 3 path</th>
-                                <th>Figure 4 path</th>
-                                <th>Figure 5 path</th>
-                                <th>Figure 6 path</th>
-                                <th>Figure 7 path</th>
-                                <th>Figure 8 path</th>
-                                <th>Figure 9 path</th>
-                                <th>Figure 10 path</th>
-                                <th>Figure 11 path</th>
-                                <th>Figure 12 path</th>
-                            </tr>
-                        </tfoot>
                     </table>
                 </div>
             </div>
@@ -99,7 +63,7 @@
                     <div class="modal-body">
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <div id="stocks-chart"/>
+                                <div id="histogram"/>
                             </div>
                         </div>
                     </div>
@@ -119,6 +83,14 @@
     <script src="/vendor/datatables/buttons.server-side.js"></script>
     <script>
         $(function() {
+            var footer = document.createElement("tfoot");
+            $(footer).append(document.createElement("tr"));
+            $('#ed-infos thead th').each(function(){
+               $(this).append(document.createElement('th'))
+            }.bind($(footer.firstElementChild)));
+            $('#ed-infos').append(footer);
+
+            var index = 0;
             $('#ed-infos').DataTable({
                 processing: true,
                 serverSide: true,
@@ -172,9 +144,13 @@
                         btn.setAttribute("class", "btn btn-xs btn-primary");
                         btn.setAttribute("data-toggle", "modal");
                         btn.setAttribute("data-target", "#chart");
+                        btn.setAttribute("data-label", column.dataSrc());
+                        btn.setAttribute("data-index", index++);
                         btn.innerHTML = "Generate chart";
                         $(btn).appendTo($(column.footer()));
                         $(btn).wrap("<div></div>");
+                        btn.onclick = drawChart;
+                        btn.disabled = true;
                     });
                 }
             });
@@ -185,6 +161,39 @@
         });
     </script>
 
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {packages: ['corechart']});
+        google.charts.setOnLoadCallback(enableGenerate);
+        
+        function enableGenerate() {
+            $('button').each(function () {
+                this.disabled = false;
+            })
+        }
+
+        function drawChart() {
+            var rawData = [['id', $('thead th')[this.getAttribute('data-index')].innerHTML]];
+            var records = $('#ed-infos').DataTable().data();
+            for(var i = 0; i < records.length; i++){
+                rawData.push(['Record ' + records[i]['id'], records[i][this.getAttribute('data-label')]]);
+            }
+            var data = new google.visualization.arrayToDataTable(rawData);
+
+            var options = {
+                'width' : 500,
+                'legend' : {
+                    'position' : 'top'
+                }
+            };
+
+            var chart = new google.visualization.Histogram(document.getElementById('histogram'));
+
+            chart.draw(data, options);
+        }
+    </script>
+
+
     <style>
         table.dataTable tfoot th {
             padding: 8px 8px 8px 8px;
@@ -194,6 +203,9 @@
         }
         table.dataTable tfoot th button{
             margin-top: 8px;
+            width: 100%;
+        }
+        svg{
             width: 100%;
         }
     </style>
