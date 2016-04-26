@@ -29,7 +29,7 @@ $factory->define(App\Task::class, function (Faker\Generator $faker) {
 
 $factory->define(App\EdInfo::class, function(Faker\Generator $faker) {
     return [
-        'ed_id' => str_random(10),
+        'ed_id' => 'ed_' . ($faker->randomNumber() % 10),
         'pmt_id' => str_random(10),
         'operator' => $faker->name,
         'test_time' => $faker->dateTimeBetween('-2 years', 'now'),

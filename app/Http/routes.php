@@ -29,10 +29,7 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
-// EdInfo Routes
-Route::get('/edInfos', 'EdInfoController@index');
-
-
-Route::controller('EdInfos', 'EdInfoController', [
-	'anyData'  => 'EdInfos.data',
+Route::controller('edInfos', 'EdInfoController', [
+	'getLatest'  => 'EdInfos.latest',
+	'getHistory' => 'EdInfos.history',
 ]);
