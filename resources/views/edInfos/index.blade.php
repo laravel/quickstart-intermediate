@@ -235,8 +235,11 @@
                         { "data" : "figure_12_path" }
                     ],
                     initComplete: function(){
+                        /**
+                         *  This is for better display, the constant 20 is set corresponding to padding defined.
+                         **/
+                        this.parent().width($('#responsive-container').width() - 20);
                         this.wrap("<div class='table-responsive'></div>");
-                        this.parent().parent().width($('#responsive-container').width() - 20);
                     }
                 })
             }
