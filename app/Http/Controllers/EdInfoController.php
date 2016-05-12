@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\EdInfo;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Excel;
 use Yajra\Datatables\Datatables;
 
 use App\Http\Requests;
@@ -53,5 +55,21 @@ class EdInfoController extends Controller
     {
         $history = EdInfo::where('ed_id', $edId);
         return Datatables::of($history)->make(true);
+    }
+
+    /**
+     * Upload excel file
+     *
+     * @param \Illuminate\Http\Request
+     * @return \Illuminate\Http\Response
+     */
+    public function postExcel(Request $request){
+        $file = $request->file('dataFile');
+        Excel::load($file, function($reader){
+            foreach ($reader->toArray() as $row) {
+                EdInfo::firstOrCreate($row);
+            }
+        });
+        return redirect('/edInfos');
     }
 }

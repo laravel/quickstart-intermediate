@@ -149,6 +149,11 @@ return [
          * Datatable Service
          */
         Yajra\Datatables\DatatablesServiceProvider::class,
+
+        /*
+         * Excel
+         */
+        Maatwebsite\Excel\ExcelServiceProvider::class,
     ],
 
     /*
@@ -199,6 +204,7 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
 
         'Datatables' => Yajra\Datatables\Facades\Datatables::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ],
 
 ];

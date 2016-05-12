@@ -32,4 +32,5 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 Route::controller('edInfos', 'EdInfoController', [
 	'getLatest'  => 'EdInfos.latest',
 	'getHistory' => 'EdInfos.history',
+	'postExcel' => 'EdInfos.excel',
 ]);

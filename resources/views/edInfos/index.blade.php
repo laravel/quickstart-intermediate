@@ -50,6 +50,14 @@
                     </table>
                 </div>
             </div>
+            
+            <div class="panel panel-default">
+                <form action="{!! route('EdInfos.excel') !!}" method="POST" enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                    <input type="file" name="dataFile">
+                    <input type="submit">
+                </form>
+            </div>
         </div>
 
         <div class="modal fade" id="chart" role="dialog">

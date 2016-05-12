@@ -12,4 +12,11 @@ class EdInfo extends Model
      * @var bool
      */
     public $timestamps = false;
+
+    /**
+     * All attributes are mass assignable
+     *
+     * @var array
+     */
+    protected $guarded = [];
 }
